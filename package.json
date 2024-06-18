@@ -3,7 +3,7 @@
   "scripts": {
     "start": "vercel dev",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc",
+    "node:build": "tsc",
     "deploy": "vercel"
   },
   "dependencies": {

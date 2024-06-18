@@ -1,7 +1,3 @@
-# FROM node:20-alpine AS base
-
-# FROM base AS builder
-
 FROM node:20-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -14,17 +10,12 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-l
 
 FROM base AS builder
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm run build
+RUN pnpm run node:build
 
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package*json tsconfig.json src ./
-
-# RUN 
-#   # npm ci && \
-#     pnpm run build && \
-#     pnpm prune --production
 
 FROM base AS runner
 WORKDIR /app
