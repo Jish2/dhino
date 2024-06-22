@@ -1,18 +1,18 @@
 {
 	"name": "dhino",
-  "scripts": {
-    "start": "vercel dev",
-    "dev": "tsx watch src/index.ts",
-    "node:build": "tsc",
-    "deploy": "vercel"
-  },
-  "dependencies": {
-    "@hono/node-server": "^1.11.3",
-    "hono": "^4.4.6"
-  },
-  "devDependencies": {
-    "tsx": "^4.15.6",
-    "typescript": "^5.4.5",
-    "vercel": "^32.4.1"
-  }
+	"scripts": {
+		"vercel:dev": "vercel dev",
+		"vercel:deploy": "vercel",
+		"node:dev": "tsx watch src/index.ts",
+		"node:build": "tsc"
+	},
+	"dependencies": {
+		"@hono/node-server": "^1.11.3",
+		"hono": "^4.4.6"
+	},
+	"devDependencies": {
+		"tsx": "^4.15.6",
+		"typescript": "^5.4.5",
+		"vercel": "^32.4.1"
+	}
 }
