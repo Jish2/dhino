@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+	"name": "dhino",
   "scripts": {
     "start": "vercel dev",
     "dev": "tsx watch src/index.ts",
