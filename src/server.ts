@@ -2,11 +2,14 @@ import { Hono } from "hono";
 
 const app = new Hono().basePath("/api");
 
-app.get("/", (c) => {
-  return c.json({ message: "Hello Hono!" });
+const root = app.get("/", (c) => {
+	return c.json({ message: "Hello Hono!" });
 });
-app.get("/bar", (c) => {
-  return c.json({ message: "Goodbye Hono!" });
+export type RootType = typeof root;
+
+const bar = app.get("/bar", (c) => {
+	return c.json({ message: "Goodbye Hono!", bar: true });
 });
+export type BarType = typeof bar;
 
 export default app;
